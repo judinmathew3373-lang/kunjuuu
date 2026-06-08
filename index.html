@@ -1,1 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful romantic proposal website dedicated to my love.">
+    <meta name="theme-color" content="#ff1493">
+    <title>For My Love ❤️</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+    
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <div class="heart-loader"></div>
+            <p class="loading-text">Loading your love story...</p>
+        </div>
+    </div>
 
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">❤️ Our Love Story</div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#story" class="nav-link">Story</a>
+                <a href="#countdown" class="nav-link">Timer</a>
+                <a href="#games" class="nav-link">Games</a>
+                <a href="#letter" class="nav-link">Letter</a>
+                <a href="#reasons" class="nav-link">Reasons</a>
+                <a href="#proposal" class="nav-link">Proposal</a>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts-container"></div>
+
+    <!-- Welcome Screen -->
+    <section id="home" class="welcome-screen hero-section">
+        <div class="welcome-content">
+            <div class="animated-heart">❤️</div>
+            <h1 class="welcome-text typing-animation">For My Love</h1>
+            <p class="welcome-subtitle">Let me show you how much you mean to me</p>
+            <button class="enter-button" onclick="scrollToSection('story')">
+                <span>Continue</span>
+                <span class="arrow">↓</span>
+            </button>
+        </div>
+        <div class="parallax-bg"></div>
+    </section>
+
+    <!-- Love Story Section -->
+    <section id="story" class="love-story section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Love Story</h2>
+            
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>The Day We Met</h3>
+                        <p>It all started when our eyes first met. That moment changed everything.</p>
+                        <span class="timeline-date">Our Beginning</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>First Moment</h3>
+                        <p>I knew right then that you were someone special, someone unforgettable.</p>
+                        <span class="timeline-date">The Start</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Growing Closer</h3>
+                        <p>Every moment with you feels like a dream I never want to wake up from.</p>
+                        <span class="timeline-date">Our Journey</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Forever Starts Now</h3>
+                        <p>And now, I want to spend the rest of my life with you.</p>
+                        <span class="timeline-date">Our Future</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="gallery-section">
+                <h3>Photo Memories</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://via.placeholder.com/300x300?text=Our+First+Photo" alt="Memory 1">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://via.placeholder.com/300x300?text=Happy+Together" alt="Memory 2">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://via.placeholder.com/300x300?text=Sweet+Moments" alt="Memory 3">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://via.placeholder.com/300x300?text=Us+Forever" alt="Memory 4">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <!-- Countdown Timer -->
+    <section id="countdown" class="countdown-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Time Together</h2>
+            <p class="countdown-subtitle">Since we met...</p>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <div class="time-value" id="days">0</div>
+                    <div class="time-label">Days</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="hours">0</div>
+                    <div class="time-label">Hours</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="minutes">0</div>
+                    <div class="time-label">Minutes</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="seconds">0</div>
+                    <div class="time-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Play With My Heart</h2>
+            
+            <!-- Game Selector -->
+            <div class="games-selector">
+                <button class="game-selector-btn active" onclick="switchGame('memory')">Memory Game</button>
+                <button class="game-selector-btn" onclick="switchGame('quiz')">Love Quiz</button>
+                <button class="game-selector-btn" onclick="switchGame('wheel')">Spin The Wheel</button>
+                <button class="game-selector-btn" onclick="switchGame('catch')">Catch Hearts</button>
+            </div>
+
+            <!-- Memory Game -->
+            <div id="memoryGame" class="game-container active">
+                <div class="memory-grid" id="memoryGrid"></div>
+                <button class="reset-btn" onclick="initMemoryGame()">New Game</button>
+            </div>
+
+            <!-- Quiz Game -->
+            <div id="quizGame" class="game-container">
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="progress-bar" id="quizProgress"></div>
+                    </div>
+                    <h3 id="quizQuestion">Loading questions...</h3>
+                    <div class="quiz-options" id="quizOptions"></div>
+                </div>
+            </div>
+
+            <!-- Spin the Wheel -->
+            <div id="wheelGame" class="game-container">
+                <div class="wheel-container">
+                    <canvas id="wheelCanvas"></canvas>
+                    <button class="spin-btn" id="spinBtn">SPIN!</button>
+                </div>
+                <div id="wheelResult" class="wheel-result hidden"></div>
+            </div>
+
+            <!-- Catch Hearts Game -->
+            <div id="catchGame" class="game-container">
+                <div class="catch-game-area" id="catchGameArea">
+                    <div class="catch-info">
+                        <span>Score: <span id="catchScore">0</span></span>
+                        <span>Lives: <span id="catchLives">3</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+    <section id="music" class="music-player-section section-padding">
+        <div class="container">
+            <div class="music-player">
+                <div class="player-display">
+                    <h3>🎵 Our Romantic Playlist</h3>
+                    <p id="songTitle">Love Song</p>
+                </div>
+                <div class="player-controls">
+                    <button id="prevBtn" class="player-btn">⏮</button>
+                    <button id="playBtn" class="player-btn play-btn">▶</button>
+                    <button id="nextBtn" class="player-btn">⏭</button>
+                </div>
+                <div class="volume-control">
+                    <span>🔊</span>
+                    <input type="range" id="volumeControl" min="0" max="100" value="50">
+                </div>
+                <audio id="audioPlayer" preload="metadata"></audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section id="letter" class="letter-section section-padding">
+        <div class="container">
+            <h2 class="section-title">A Love Letter For You</h2>
+            <div class="letter-container glassmorphism">
+                <div class="letter-header">
+                    <div class="letter-decoration">💌</div>
+                    <h3>My Dearest Love,</h3>
+                </div>
+                <div class="letter-content">
+                    <p class="letter-text">There are no words in any language that could truly express how deeply I love you. Every moment with you feels like a beautiful dream, and I never want to wake up.</p>
+                    <p class="letter-text">You are my sunshine on dark days, my smile when I'm sad, and my reason to believe in forever. Your laugh is my favorite melody, and your smile is my favorite view.</p>
+                    <p class="letter-text">I love the way you light up my world, the way you understand me without words, and the way you make every ordinary moment feel extraordinary.</p>
+                    <p class="letter-text">I want to promise you a lifetime of love, laughter, and adventure. I want to hold your hand through every season of life, and I want to love you more with each passing day.</p>
+                    <p class="letter-text">You are not just my love; you are my best friend, my soulmate, and my forever.</p>
+                    <p class="letter-signature">Forever Yours,<br>❤️</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section id="reasons" class="reasons-section section-padding">
+        <div class="container">
+            <h2 class="section-title">50 Reasons I Love You</h2>
+            <div class="reasons-grid" id="reasonsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="surprise-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Special Surprise</h2>
+            <button class="surprise-btn" onclick="triggerSurprise()">
+                🎁 Click Here For A Surprise 🎁
+            </button>
+        </div>
+    </section>
+
+    <!-- Proposal Section -->
+    <section id="proposal" class="proposal-section section-padding">
+        <div class="container">
+            <div class="proposal-container">
+                <h2 class="proposal-question">Will You Be Mine Forever? ❤️</h2>
+                <div class="proposal-buttons">
+                    <button class="btn-yes" id="yesBtn" onclick="handleYes()">YES!</button>
+                    <button class="btn-no" id="noBtn" onclick="handleNo()">No</button>
+                </div>
+                <p class="proposal-hint">* The answer can only be YES 😊</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebration Page -->
+    <div id="celebrationPage" class="celebration-page hidden">
+        <div class="celebration-content">
+            <h1>You Just Made Me<br>The Happiest Person Alive ❤️</h1>
+            <div class="celebration-hearts"></div>
+            <button class="restart-btn" onclick="restartWebsite()">Start Over</button>
+            <button class="share-btn" onclick="shareProposal()">Share This Moment</button>
+        </div>
+    </div>
+
+    <!-- Cursor Custom -->
+    <div class="cursor"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
